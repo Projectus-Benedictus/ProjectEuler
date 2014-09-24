@@ -11,4 +11,9 @@ public class Euler {
 			}
 		}return sum;
 	}
+	
+	
+	public int Problem2(){
+		
+	}
 }
