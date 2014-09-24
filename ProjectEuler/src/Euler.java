@@ -1,5 +1,3 @@
-import java.math.*;
-
 public class Euler {
 	
 	public Euler(){
