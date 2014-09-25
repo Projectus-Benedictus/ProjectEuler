@@ -25,4 +25,26 @@ public class Euler {
 			result=first+second;
 		}return sum;
 	}
+	
+	
+	public long Problem3_1(){
+		long n=600851475143L;
+		long div=2;
+		while (true==true){
+			long primo = n/div;
+			if(n%primo==0 && Problem3_2(primo)){return primo;
+			}div++;
+		}
+	}
+	
+	public boolean Problem3_2(long primo){
+		if(primo%2==0){return false;
+		}
+		long meio=(primo/2)%2==0 ? (primo/2)-1 : primo/2;
+		for (int i=3;i<meio;i+=2){
+			if(primo%i==0){return false;
+			
+			}
+		}return true;
+	}
 }
