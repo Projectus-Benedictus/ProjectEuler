@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Euler {
 	
 	public Euler(){
@@ -27,7 +29,7 @@ public class Euler {
 	}
 	
 	
-	public long Problem3_1(){
+	public long Problem3(){
 		long n=600851475143L;
 		long div=2;
 		while (true==true){
@@ -42,9 +44,18 @@ public class Euler {
 		}
 		long meio=(primo/2)%2==0 ? (primo/2)-1 : primo/2;
 		for (int i=3;i<meio;i+=2){
-			if(primo%i==0){return false;
-			
+			if(primo%i==0){return false;	
 			}
 		}return true;
+	}
+	
+	
+	public int Problem6(int n){
+		int sumSquares=0;
+		int squareSum=0;
+		for (int i=1;i<=n;i++){
+			sumSquares+=i*i;
+			squareSum+=i;
+		}return ((int)Math.pow(squareSum, 2) - sumSquares);
 	}
 }
