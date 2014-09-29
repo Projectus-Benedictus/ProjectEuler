@@ -62,17 +62,17 @@ public class Euler {
 	
 	public int Problem5(){
 		int[] n={20,19,18,17,16,15,14,13,12,11};
-		int mmc=mmc(n[0],n[1]);
+		int mmc=Minmc(n[0],n[1]);
 		for (int i=2; i<n.length;i++){
-			mmc=mmc(mmc,n[i]);
+			mmc=Minmc(mmc,n[i]);
 		}return mmc;
 	}
 	
-	public int Mmc(int x, int y){	
-		return ((y==0)? x:Mmc(y, x%y));
+	public int Maxmc(int x, int y){	
+		return ((y==0)? x:Maxmc(y, x%y));
 	}
 	
-	public int mmc(int x, int y){
-		return ((x*y)/(Mmc(x,y)));
+	public int Minmc(int x, int y){
+		return ((x*y)/(Maxmc(x,y)));
 	}
 }
