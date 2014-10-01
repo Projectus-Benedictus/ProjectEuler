@@ -45,7 +45,7 @@ public class Euler_J {
 		}
 	}
 	
-	public boolean Problem3_2(long primo){
+	public boolean Problem3_2(long primo) {
 		if(primo%2==0) {
 			return false;
 		}
@@ -63,6 +63,19 @@ public class Euler_J {
 		
 	}
 	
+	public void Esqueleto(){
+		    System.out.println("Digite a expressao;");
+		    
+		    try {
+		      BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+		      StringTokenizer st=new StringTokenizer(bf.readLine(),"(){}[]",true);
+		     // implementar o algoritmo
+		      while(st.hasMoreTokens()){
+		        System.out.println(st.nextToken());
+		      }
+		    }
+		    catch(IOException e) {}
+	}
 	
 	public int Problem5() {
 		int[] n={20,19,18,17,16,15,14,13,12,11};
@@ -90,11 +103,5 @@ public class Euler_J {
 			squareSum+=i;
 		}
 		return ((int)Math.pow(squareSum, 2) - sumSquares);
-	}
-	
-	
-	
-
-	
-	
+	}	
 }
