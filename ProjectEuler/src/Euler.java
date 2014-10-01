@@ -50,6 +50,10 @@ public class Euler {
 	}
 	
 	
+	public int Problem6(){
+		
+	}
+	
 	
 	public int Problem5(){
 		int[] n={20,19,18,17,16,15,14,13,12,11};
@@ -66,7 +70,6 @@ public class Euler {
 	public int Minmc(int x, int y){
 		return ((x*y)/(Maxmc(x,y)));
 	}
-	
 	
 	
 	public int Problem6(int n){
