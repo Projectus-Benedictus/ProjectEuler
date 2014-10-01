@@ -1,10 +1,13 @@
-import java.lang.Math;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Euler_J {
-	
+
 	public Euler_J() {
 	}
-	
+
 	public int Problem1() {
 		int sum=0;
 		for(int i=3;i<1000;i++){
@@ -14,8 +17,8 @@ public class Euler_J {
 		}
 		return sum;
 	}
-	
-	
+
+
 	public int Problem2() {
 		int first=0;
 		int second=1;
@@ -31,8 +34,8 @@ public class Euler_J {
 		}
 		return sum;
 	}
-	
-	
+
+
 	public long Problem3() {
 		long n=600851475143L;
 		long div=2;
@@ -44,7 +47,7 @@ public class Euler_J {
 			div++;
 		}
 	}
-	
+
 	public boolean Problem3_2(long primo) {
 		if(primo%2==0) {
 			return false;
@@ -57,26 +60,25 @@ public class Euler_J {
 		}
 		return true;
 	}
-	
-	
+
+
 	public int Problem4() {
-		
+
 	}
-	
-	public void Esqueleto(){
-		    System.out.println("Digite a expressao;");
-		    
-		    try {
-		      BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
-		      StringTokenizer st=new StringTokenizer(bf.readLine(),"(){}[]",true);
-		     // implementar o algoritmo
-		      while(st.hasMoreTokens()){
-		        System.out.println(st.nextToken());
-		      }
-		    }
-		    catch(IOException e) {}
+
+	public void Esqueleto() {
+		System.out.println("Digite a expressao;");
+		try {
+			BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+			StringTokenizer st=new StringTokenizer(bf.readLine(),"(){}[]",true);
+			// implementar o algoritmo
+			while(st.hasMoreTokens()){
+				System.out.println(st.nextToken());
+			}
+		}
+		catch(IOException e) {}
 	}
-	
+
 	public int Problem5() {
 		int[] n={20,19,18,17,16,15,14,13,12,11};
 		int mmc=Minmc(n[0],n[1]);
@@ -85,16 +87,16 @@ public class Euler_J {
 		}
 		return mmc;
 	}
-	
+
 	public int Maxmc(int x, int y) {	
 		return ((y==0)? x:Maxmc(y, x%y));
 	}
-	
+
 	public int Minmc(int x, int y) {
 		return ((x*y)/(Maxmc(x,y)));
 	}
-	
-	
+
+
 	public int Problem6(int n) {
 		int sumSquares=0;
 		int squareSum=0;
