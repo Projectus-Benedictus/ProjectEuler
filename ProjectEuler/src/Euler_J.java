@@ -63,7 +63,7 @@ public class Euler_J {
 
 
 	public int Problem4() {
-
+		
 	}
 
 	public void Esqueleto() {
