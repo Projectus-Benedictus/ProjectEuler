@@ -50,15 +50,6 @@ public class Euler {
 	}
 	
 	
-	public int Problem6(int n){
-		int sumSquares=0;
-		int squareSum=0;
-		for (int i=1;i<=n;i++){
-			sumSquares+=i*i;
-			squareSum+=i;
-		}return ((int)Math.pow(squareSum, 2) - sumSquares);
-	}
-	
 	
 	public int Problem5(){
 		int[] n={20,19,18,17,16,15,14,13,12,11};
@@ -75,4 +66,21 @@ public class Euler {
 	public int Minmc(int x, int y){
 		return ((x*y)/(Maxmc(x,y)));
 	}
+	
+	
+	
+	public int Problem6(int n){
+		int sumSquares=0;
+		int squareSum=0;
+		for (int i=1;i<=n;i++){
+			sumSquares+=i*i;
+			squareSum+=i;
+		}return ((int)Math.pow(squareSum, 2) - sumSquares);
+	}
+	
+	
+	
+
+	
+	
 }
