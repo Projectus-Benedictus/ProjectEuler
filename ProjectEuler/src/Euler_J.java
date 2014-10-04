@@ -1,8 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
 public class Euler_J {
 
 	public Euler_J() {
@@ -63,22 +58,32 @@ public class Euler_J {
 
 
 	public int Problem4() {
-		
-	}
-
-	public void Esqueleto() {
-		System.out.println("Digite a expressao;");
-		try {
-			BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
-			StringTokenizer st=new StringTokenizer(bf.readLine(),"(){}[]",true);
-			// implementar o algoritmo
-			while(st.hasMoreTokens()){
-				System.out.println(st.nextToken());
+		int maior=0;
+		int palindromo;
+		for (int i=100;i<=999;i++) {
+			for (int j=i; j<=999;j++) {
+				palindromo=i*j;
+				if (Palindromo(palindromo) && palindromo>maior ) {
+					maior=palindromo;
+				}
 			}
 		}
-		catch(IOException e) {}
+		return maior;
 	}
 
+	public boolean Palindromo(int n) {
+		int i=0;
+		int m=n;
+		while (n!=0) {
+			int r = n%10;
+			i=(i*10)+r;
+			n/=10;
+		}
+		return ((m == i) ? true: false);
+	}
+	
+	
+	
 	public int Problem5() {
 		int[] n={20,19,18,17,16,15,14,13,12,11};
 		int mmc=Minmc(n[0],n[1]);
