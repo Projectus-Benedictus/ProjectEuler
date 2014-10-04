@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Euler_J {
 
 	public Euler_J() {
@@ -12,6 +14,7 @@ public class Euler_J {
 		}
 		return sum;
 	}
+	
 
 
 	public int Problem2() {
@@ -30,6 +33,7 @@ public class Euler_J {
 		return sum;
 	}
 
+	
 
 	public long Problem3() {
 		long n=600851475143L;
@@ -57,6 +61,7 @@ public class Euler_J {
 	}
 
 
+	
 	public int Problem4() {
 		int maior=0;
 		int palindromo;
@@ -101,6 +106,7 @@ public class Euler_J {
 		return ((x*y)/(Maxmc(x,y)));
 	}
 
+	
 
 	public int Problem6(int n) {
 		int sumSquares=0;

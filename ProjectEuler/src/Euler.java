@@ -16,6 +16,7 @@ public class Euler {
 	}
 	
 	
+	
 	public int Problem2() {
 		int first=0;
 		int second=1;
@@ -31,6 +32,7 @@ public class Euler {
 		}
 		return sum;
 	}
+	
 	
 	
 	public long Problem3() {
@@ -56,6 +58,7 @@ public class Euler {
 			}
 		}return true;
 	}
+	
 	
 	
 	public int Problem4() {
@@ -84,6 +87,7 @@ public class Euler {
 	}
 	
 	
+	
 	public int Problem5() {
 		int[] n={20,19,18,17,16,15,14,13,12,11};
 		int mmc=Minmc(n[0],n[1]);
@@ -101,6 +105,7 @@ public class Euler {
 	}
 	
 	
+	
 	public int Problem6(int n) {
 		int sumSquares=0;
 		int squareSum=0;
@@ -108,11 +113,5 @@ public class Euler {
 			sumSquares+=i*i;
 			squareSum+=i;
 		}return ((int)Math.pow(squareSum, 2) - sumSquares);
-	}
-	
-	
-	
-
-	
-	
+	}	
 }
