@@ -165,7 +165,23 @@ public class Euler_J {
 	
 	
 	public int Problem9() {
-		
+		for (int a=1;a<1000;a++) {
+			for (int b=1;a+b<1000;b++) {
+				double c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+				if (c == (int) c) { 
+					if (a+b+ (int) c == 1000) {
+						return  a*b* (int) c;
+					}
+				}
+			}
+		}
+		return 1;
 	}
 	
+	
+	
+	public int Problem10() {
+		long soma=0;
+		
+	}
 }
