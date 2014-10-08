@@ -36,25 +36,35 @@ public class Euler_J {
 	
 
 	public long Problem3() {
-		long n=600851475143L;
-		long div=2;
-		while (true==true) {
-			long primo = n/div;
-			if(n%primo==0 && Problem3_2(primo)) {
-				return primo;
+		long n=Long.parseLong("600851475143");
+		long maior=0;
+		while(n!=1) {
+			int i=2;
+			while (i<=n) {
+				if (ePrimo(i) && n%i==0) {
+					if (i>maior) {
+						maior = i;
+					}
+					n/=i;
+					break;
+				}
+				i++;
 			}
-			div++;
 		}
+		return maior;
 	}
 
-	public boolean Problem3_2(long primo) {
-		if(primo%2==0) {
+	public boolean ePrimo(int primo) {
+		if (primo==2) { 
+			return true;
+		}
+		if (primo % 2 == 0 || primo ==1) {
 			return false;
 		}
-		long meio=(primo/2)%2==0 ? (primo/2)-1 : primo/2;
-		for (int i=3;i<meio;i+=2) {
-			if(primo%i==0) {
-				return false;	
+		long sqrtPrimo= (long)Math.sqrt(primo);
+		for (int i=3;i<=sqrtPrimo;i+=2) {
+			if (primo%i==0) {
+				return false;
 			}
 		}
 		return true;
