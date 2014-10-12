@@ -12,6 +12,7 @@ public class TestClass_J {
 		//System.out.println("Problema 8: "+cenas.Problem8());
 		//System.out.println("Problema 9: "+cenas.Problem9());
 		//System.out.println("Problema 10: "+cenas.Problem10());
-		System.out.println("Problema 11: "+cenas.Problem11());
+		//System.out.println("Problema 11: "+cenas.Problem11());
+		System.out.println("Problema 12: "+cenas.Problem12());
 	}
 }

@@ -240,4 +240,37 @@ public class Euler_J {
 		}
 		return maiorProduto;
 	}
+	
+	
+	public int Problem12() {
+		int n=0;
+		for (int i=1;;i++) {
+			n+=i; //
+			if (numDivisores(n)>500) {
+				return n;
+			}
+		}
+	}
+	
+	public int numDivisores(int n) {
+		int numDivisores=0;
+		int limite = (int) Math.sqrt(n);
+		for (int i=1;i<=limite;i++) {
+			if(n%i==0) {
+				numDivisores+=2;
+			}
+		}
+		if (limite*limite == n) {//verificação do quadrado perfeito
+			numDivisores++;
+		}
+		return numDivisores;
+	}
+	
+	
+	
+	public int Problem13() {
+		
+	}
+	
+	
 }
