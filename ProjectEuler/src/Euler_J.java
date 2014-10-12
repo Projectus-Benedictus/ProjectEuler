@@ -1,5 +1,5 @@
 import java.lang.Math;
-import java.lang.Object;
+import java.math.BigInteger;
 import java.io.*;
 
 public class Euler_J {
@@ -268,9 +268,28 @@ public class Euler_J {
 	
 	
 	
-	public int Problem13() {
-		
+	public long Problem13() {
+		BigInteger sum = BigInteger.valueOf(0);
+		File file = new File("C:\\Users\\Joao\\Desktop\\Cenas\\PI\\Number.txt");
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+		    for(String line; (line = br.readLine()) != null; ) {
+		    	sum = sum.add(new BigInteger(line));
+		    }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String sumString = sum.toString();
+		StringBuilder s = new StringBuilder();
+		for (int i=0;i<10;i++) {
+			s.append(sumString.charAt(i));
+		}
+		long fim = Long.parseLong(s.toString());
+		return fim;
 	}
 	
 	
+	
+	public int Problem14() {
+		
+	}
 }
