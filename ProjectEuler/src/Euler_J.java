@@ -289,7 +289,38 @@ public class Euler_J {
 	
 	
 	
-	public int Problem14() {
-		
+	public int Problem16() {
+		BigInteger bigNumber = new BigInteger("2");
+		bigNumber = bigNumber.pow(1000);
+		String n = bigNumber.toString();
+		int sum = 0;
+		for (int i=0;i<n.length();i++) {
+			Character c = new Character(n.charAt(i));
+			String s = c.toString();
+			int num = Integer.parseInt(s);
+			sum += num;
+		}
+		return sum;
+	}
+	
+	
+	public int Problem20() {
+		int sum=0;
+		String n = FactorialString(100);
+		for (int i=0;i<n.length();i++) {
+			Character c = new Character(n.charAt(i));
+			String s = c.toString();
+			int num = Integer.parseInt(s);
+			sum += num;
+		}
+		return sum;
+	}
+	
+	public String FactorialString(int n) {
+		BigInteger fact = new BigInteger("1");
+		for (int i=1;i<=n;i++) {
+			fact = fact.multiply(new BigInteger(i+""));
+		}
+		return fact.toString();
 	}
 }
