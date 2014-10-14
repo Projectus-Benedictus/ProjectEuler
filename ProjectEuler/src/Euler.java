@@ -168,9 +168,11 @@ public class Euler {
 	
 	
 	public int Problem9() {
-		for (int a=1;a<1000;a++) {
-			for (int b=1;a+b<1000;b++) {
-				double c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+		int a,b;
+		double c;
+		for (a=1;;a++) {
+			for (b=1;b<a;b++) {
+				c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 				if (c == (int) c) { 
 					if (a+b+ (int) c == 1000) {
 						return  a*b* (int) c;
@@ -178,7 +180,6 @@ public class Euler {
 				}
 			}
 		}
-		return 1;
 	}
 	
 	
