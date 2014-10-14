@@ -263,7 +263,7 @@ public class Euler {
 				numDivisores+=2;
 			}
 		}
-		if (limite*limite == n) {//verificação do quadrado perfeito
+		if (limite*limite == n) {//verificaÃ§Ã£o do quadrado perfeito
 			numDivisores++;
 		}
 		return numDivisores;
@@ -273,7 +273,7 @@ public class Euler {
 	
 	public long Problem13() {
 		BigInteger sum = BigInteger.valueOf(0);
-		File file = new File("C:\\Users\\Joao\\Desktop\\Cenas\\PI\\Number.txt");
+		File file = new File("C:\\Users\\Joao\\Desktop\\Cenas\\PI\\Number.txt"); //Colocar ficheiro correctamente!
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    for(String line; (line = br.readLine()) != null; ) {
 		    	sum = sum.add(new BigInteger(line));
