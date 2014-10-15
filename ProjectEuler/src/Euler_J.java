@@ -189,10 +189,18 @@ public class Euler_J {
 	}
 	
 	
-	public int Problem14() {
-		
+	public long Problem14() {
+		long counter=0, maiorSequencia=0, maiorNumero=0;
+		for (int i=10;i<1000000;i++) {
+			long n=i;
+			counter = Utility_J.collatzSequence(n);
+			if(counter>maiorSequencia) {
+				maiorSequencia=counter;
+				maiorNumero=i;
+			}
+		}
+		return maiorNumero;
 	}
-	
 	
 	public int Problem16() {
 		BigInteger bigNumber = new BigInteger("2");

@@ -101,7 +101,7 @@ public class Utility_J {
 		return fact.toString();
 	}
 	
-	public static int collatzSequence(int n) {
+	public static int collatzSequence(long n) {
 		int counter=0;
 		while(n!=1) {
 			n = (n%2==0) ? (n=n/2) : (n=n*3+1);
