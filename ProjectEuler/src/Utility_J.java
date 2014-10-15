@@ -1,6 +1,5 @@
 import java.math.BigInteger;
 
-
 public class Utility_J {
 	
 	public static boolean isPrime(int a) {
@@ -79,6 +78,7 @@ public class Utility_J {
 		}
 		return maiorProduto;
 	}
+	
 	public static int countDivisors(int n) {
 		int numDivisores=0;
 		int limite = (int) Math.sqrt(n);
@@ -93,14 +93,13 @@ public class Utility_J {
 		return numDivisores;
 	}
 	
-	public static String FactorialString(int n) {
+	public static String factorialString(int n) {
 		BigInteger fact = new BigInteger("1");
 		for (int i=1;i<=n;i++) {
 			fact = fact.multiply(new BigInteger(i+""));
 		}
 		return fact.toString();
 	}
-	
 	
 	public static int collatzSequence(int n) {
 		int counter=0;

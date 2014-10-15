@@ -17,8 +17,7 @@ public class Euler_J {
 		return sum;
 	}
 	
-
-
+	
 	public int Problem2() {
 		int first=0;
 		int second=1;
@@ -35,7 +34,6 @@ public class Euler_J {
 		return sum;
 	}
 
-	
 
 	public long Problem3() {
 		long n=Long.parseLong("600851475143");
@@ -43,7 +41,7 @@ public class Euler_J {
 		while(n!=1) {
 			int i=2;
 			while (i<=n) {
-				if (ePrimo(i) && n%i==0) {
+				if (Utility_J.isPrime(i) && n%i==0) {
 					if (i>maior) {
 						maior = i;
 					}
@@ -56,23 +54,6 @@ public class Euler_J {
 		return maior;
 	}
 
-	public boolean ePrimo(int primo) {
-		if (primo==2) { 
-			return true;
-		}
-		if (primo % 2 == 0 || primo == 1) {
-			return false;
-		}
-		long sqrtPrimo= (long)Math.sqrt(primo);
-		for (int i=3;i<=sqrtPrimo;i+=2) {
-			if (primo%i==0) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-
 	
 	public int Problem4() {
 		int maior=0;
@@ -80,45 +61,24 @@ public class Euler_J {
 		for (int i=100;i<=999;i++) {
 			for (int j=i; j<=999;j++) {
 				palindromo=i*j;
-				if (Palindromo(palindromo) && palindromo>maior ) {
+				if (Utility_J.isPalindrome(palindromo) && palindromo>maior ) {
 					maior=palindromo;
 				}
 			}
 		}
 		return maior;
 	}
-
-	public boolean Palindromo(int n) {
-		int i=0;
-		int m=n;
-		while (n!=0) {
-			int r = n%10;
-			i=(i*10)+r;
-			n/=10;
-		}
-		return ((m == i) ? true: false);
-	}
-	
 	
 	
 	public int Problem5() {
 		int[] n={20,19,18,17,16,15,14,13,12,11};
-		int mmc=Minmc(n[0],n[1]);
+		int mmc=Utility_J.minmc(n[0],n[1]);
 		for (int i=2; i<n.length;i++) {
-			mmc=Minmc(mmc,n[i]);
+			mmc=Utility_J.minmc(mmc,n[i]);
 		}
 		return mmc;
 	}
 
-	public int Maxmc(int x, int y) {	
-		return ((y==0)? x:Maxmc(y, x%y));
-	}
-
-	public int Minmc(int x, int y) {
-		return ((x*y)/(Maxmc(x,y)));
-	}
-
-	
 
 	public int Problem6(int n) {
 		int sumSquares=0;
@@ -131,12 +91,11 @@ public class Euler_J {
 	}
 	
 	
-	
 	public int Problem7(){
 		int contador=1;
 		int primo=3;
 		while (contador<10001) {
-			if (ePrimo(primo)){
+			if (Utility_J.isPrime(primo)){
 				contador++;
 			}
 			primo+=2;
@@ -166,9 +125,11 @@ public class Euler_J {
 	
 	
 	public int Problem9() {
-		for (int a=1;a<1000;a++) {
-			for (int b=1;a+b<1000;b++) {
-				double c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+		int a,b;
+		double c;
+		for (a=1;;a++) {
+			for (b=1;b<=a;b++) {
+				c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 				if (c == (int) c) { 
 					if (a+b+ (int) c == 1000) {
 						return  a*b* (int) c;
@@ -176,15 +137,13 @@ public class Euler_J {
 				}
 			}
 		}
-		return 1;
 	}
-	
 	
 	
 	public long Problem10() {
 		long soma=0;
 		for(int i=1;i<2000000;i++) {
-			if (ePrimo(i)) {
+			if (Utility.isPrime(i)) {
 				soma+=i;
 			}
 		}
@@ -192,87 +151,29 @@ public class Euler_J {
 	}
 	
 	
-	
 	public int Problem11() {
 		int vintePorVinte[][] = {{8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8},{49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0},{81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65},{52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91},{22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80},{24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50},{32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70},{67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21},{24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72},{21, 36, 23, 9, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95},{78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92},{16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57},{86, 56, 0, 48, 35, 71, 89, 07, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58},{19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40},{4, 52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66},{88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69},{4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36},{20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16},{20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54},{1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48}};
-		return PercorrerMatriz(vintePorVinte);
+		return Utility_J.matrixRunner(vintePorVinte);
 	}
 	
-	
-	public int PercorrerMatriz(int matriz[][]) {
-		int produto=0;
-		int maiorProduto=0;
-		//Ver vertical
-		for (int i=0;i<17;i++) {
-			for  (int j=0; j<20;j++) {
-				produto = matriz[j][i]*matriz[j][i+1]*matriz[j][i+2]*matriz[j][i+3];
-				if (produto>maiorProduto) {
-					maiorProduto = produto;
-				}
-			}
-		}
-		//Ver horizontal
-		for (int i=0;i<20;i++) {
-			for (int j=0;j<17;j++) {
-				produto = matriz[j][i]*matriz[j+1][i]*matriz[j+2][i]*matriz[j+3][i];
-				if (produto>maiorProduto) {
-					maiorProduto=produto;
-				}
-			}
-		}
-		//Ver diagonal direita
-		for (int i=0;i<17;i++) {
-			for (int j=0;j<17;j++) {
-				produto = matriz[j][i]*matriz[j+1][i+1]*matriz[j+2][i+2]*matriz[j+3][i+3];
-				if (produto>maiorProduto) {
-					maiorProduto=produto;
-				}
-			}
-		}
-		//Ver diagonal esquerda
-		for (int i=3;i<17;i++) {
-			for (int j=0;j<17;j++) {
-				produto = matriz[j][i]*matriz[j+1][i-1]*matriz[j+2][i-2]*matriz[j+3][i-3];
-				if (produto>maiorProduto) {
-					maiorProduto=produto;
-				}
-			}
-		}
-		return maiorProduto;
-	}
-	
-	
+		
 	public int Problem12() {
 		int n=0;
 		for (int i=1;;i++) {
 			n+=i; //
-			if (numDivisores(n)>500) {
+			if (Utility_J.countDivisors(n)>500) {
 				return n;
 			}
 		}
 	}
 	
-	public int numDivisores(int n) {
-		int numDivisores=0;
-		int limite = (int) Math.sqrt(n);
-		for (int i=1;i<=limite;i++) {
-			if(n%i==0) {
-				numDivisores+=2;
-			}
-		}
-		if (limite*limite == n) {//verificação do quadrado perfeito
-			numDivisores++;
-		}
-		return numDivisores;
-	}
-	
-	
 	
 	public long Problem13() {
 		BigInteger sum = BigInteger.valueOf(0);
-		File file = new File("C:\\Users\\Joao\\Desktop\\Cenas\\PI\\Number.txt");
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-		    for(String line; (line = br.readLine()) != null; ) {
+		try (FileInputStream file= new FileInputStream("src/Number.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(file))) {
+		   
+			for(String line; (line = br.readLine()) != null; ) {
 		    	sum = sum.add(new BigInteger(line));
 		    }
 		} catch (IOException e) {
@@ -287,6 +188,10 @@ public class Euler_J {
 		return fim;
 	}
 	
+	
+	public int Problem14() {
+		
+	}
 	
 	
 	public int Problem16() {
@@ -306,7 +211,7 @@ public class Euler_J {
 	
 	public int Problem20() {
 		int sum=0;
-		String n = FactorialString(100);
+		String n = Utility_J.factorialString(100);
 		for (int i=0;i<n.length();i++) {
 			Character c = new Character(n.charAt(i));
 			String s = c.toString();
@@ -315,12 +220,5 @@ public class Euler_J {
 		}
 		return sum;
 	}
-	
-	public String FactorialString(int n) {
-		BigInteger fact = new BigInteger("1");
-		for (int i=1;i<=n;i++) {
-			fact = fact.multiply(new BigInteger(i+""));
-		}
-		return fact.toString();
-	}
+
 }
