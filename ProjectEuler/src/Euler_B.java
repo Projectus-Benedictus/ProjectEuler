@@ -134,7 +134,7 @@ public class Euler_B {
 		int a,b;
 		double c;
 		for (a=1;;a++) {
-			for (b=1;b<a;b++) {
+			for (b=1;b<=a;b++) {
 				c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
 				if (c == (int) c) { 
 					if (a+b+ (int) c == 1000) {
@@ -178,9 +178,10 @@ public class Euler_B {
 	
 	public long Problem13() {
 		BigInteger sum = BigInteger.valueOf(0);
-		File file = new File("C:\\Users\\Joao\\Desktop\\Cenas\\PI\\Number.txt"); //Colocar ficheiro correctamente!
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-		    for(String line; (line = br.readLine()) != null; ) {
+		try (FileInputStream file= new FileInputStream("src/Number.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(file))) {
+		   
+			for(String line; (line = br.readLine()) != null; ) {
 		    	sum = sum.add(new BigInteger(line));
 		    }
 		} catch (IOException e) {
