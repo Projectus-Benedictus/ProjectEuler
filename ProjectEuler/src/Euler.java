@@ -225,5 +225,4 @@ public class Euler {
 		}
 		return sum;
 	}
-
 }

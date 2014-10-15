@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 
-public class Utility {
+public class Utility_J {
 	
 	public static boolean isPrime(int a) {
 		if (a==2) { 
@@ -99,5 +99,15 @@ public class Utility {
 			fact = fact.multiply(new BigInteger(i+""));
 		}
 		return fact.toString();
+	}
+	
+	
+	public static int collatzSequence(int n) {
+		int counter=0;
+		while(n!=1) {
+			n = (n%2==0) ? (n=n/2) : (n=n*3+1);
+			counter++;
+		}
+		return counter;
 	}
 }
