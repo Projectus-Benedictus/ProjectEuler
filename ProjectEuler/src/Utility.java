@@ -79,6 +79,7 @@ public class Utility {
 		}
 		return maiorProduto;
 	}
+	
 	public static int countDivisors(int n) {
 		int numDivisores=0;
 		int limite = (int) Math.sqrt(n);

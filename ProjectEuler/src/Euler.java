@@ -18,7 +18,6 @@ public class Euler {
 	}
 	
 
-
 	public int Problem2() {
 		int first=0;
 		int second=1;
@@ -35,7 +34,6 @@ public class Euler {
 		return sum;
 	}
 
-	
 
 	public long Problem3() {
 		long n=Long.parseLong("600851475143");
@@ -81,7 +79,6 @@ public class Euler {
 		return mmc;
 	}
 
-	
 
 	public int Problem6(int n) {
 		int sumSquares=0;
@@ -92,7 +89,6 @@ public class Euler {
 		}
 		return ((int)Math.pow(squareSum, 2) - sumSquares);
 	}
-	
 	
 	
 	public int Problem7(){
@@ -106,7 +102,6 @@ public class Euler {
 		}
 		return (primo-2);
 	}
-	
 	
 	
 	public long Problem8() {
@@ -129,7 +124,6 @@ public class Euler {
 	}
 	
 	
-	
 	public int Problem9() {
 		int a,b;
 		double c;
@@ -146,7 +140,6 @@ public class Euler {
 	}
 	
 	
-	
 	public long Problem10() {
 		long soma=0;
 		for(int i=1;i<2000000;i++) {
@@ -156,7 +149,6 @@ public class Euler {
 		}
 		return soma;
 	}
-	
 	
 	
 	public int Problem11() {
@@ -197,7 +189,6 @@ public class Euler {
 	}
 	
 	
-	
 	public int Problem16() {
 		BigInteger bigNumber = new BigInteger("2");
 		bigNumber = bigNumber.pow(1000);
@@ -211,7 +202,6 @@ public class Euler {
 		}
 		return sum;
 	}
-	
 	
 	
 	public int Problem20() {
