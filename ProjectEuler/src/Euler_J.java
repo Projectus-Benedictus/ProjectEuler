@@ -202,6 +202,18 @@ public class Euler_J {
 		return maiorNumero;
 	}
 	
+	
+	public BigInteger Problem15() {
+		//Sabemos que qualquer path vai ter 40 movimentos (20 para a direita e 20 para baixo)
+		//Basta fazer uma combinação, 40 C 20 = 40!/(20!*(40-20)!)
+		//Luckily, já temos o factorial do exercicio 20 :)
+		BigInteger fact40 = new BigInteger(Utility_J.factorialString(40));
+		BigInteger fact20 = new BigInteger(Utility_J.factorialString(20));
+		BigInteger combinacao = fact40.divide(fact20.multiply(fact20));
+		return combinacao;
+	}
+	
+	
 	public int Problem16() {
 		BigInteger bigNumber = new BigInteger("2");
 		bigNumber = bigNumber.pow(1000);
@@ -228,5 +240,9 @@ public class Euler_J {
 		}
 		return sum;
 	}
-
+	
+	
+	public int Problem25() {
+		
+	}
 }

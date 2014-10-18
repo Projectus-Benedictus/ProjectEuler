@@ -3,17 +3,11 @@ import java.math.BigInteger;
 public class Utility_J {
 	
 	public static boolean isPrime(int a) {
-		if (a==2) { 
-			return true;
-		}
-		if (a % 2 == 0 || a == 1) {
-			return false;
-		}
-		long sqrtPrimo= (long)Math.sqrt(a);
+		if (a==2) return true;
+		if (a % 2 == 0 || a == 1) return false;
+		long sqrtPrimo = (long) Math.sqrt(a);
 		for (int i=3;i<=sqrtPrimo;i+=2) {
-			if (a%i==0) {
-				return false;
-			}
+			if (a%i==0) return false;
 		}
 		return true;
 	}
@@ -94,9 +88,9 @@ public class Utility_J {
 	}
 	
 	public static String factorialString(int n) {
-		BigInteger fact = new BigInteger("1");
+		BigInteger fact = BigInteger.ONE;
 		for (int i=1;i<=n;i++) {
-			fact = fact.multiply(new BigInteger(i+""));
+			fact = fact.multiply(BigInteger.valueOf(i));
 		}
 		return fact.toString();
 	}
@@ -108,5 +102,11 @@ public class Utility_J {
 			counter++;
 		}
 		return counter;
+	}
+	
+	public static BigInteger bigFibonacci(int n) {
+		if(n==0) return BigInteger.ZERO;
+		if(n==1) return BigInteger.ONE;
+		return bigFibonacci(n-1).add(bigFibonacci(n-2));
 	}
 }
