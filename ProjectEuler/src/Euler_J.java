@@ -242,7 +242,19 @@ public class Euler_J {
 	}
 	
 	
-	public int Problem25() {
-		
+	public long Problem48() {
+		BigInteger soma = BigInteger.ONE;
+		for (int i=2;i<=1000;i++) {
+			BigInteger n = BigInteger.valueOf(i);
+			soma = soma.add(n.pow(i));
+		}
+		String s = soma.toString();
+		System.out.println(s);
+		String lastTen = "";
+		for (int i = s.length()-10;i<s.length();i++) {
+			Character c = new Character(s.charAt(i));
+			lastTen = lastTen + c;
+		}
+		return Long.parseLong(lastTen);
 	}
 }
