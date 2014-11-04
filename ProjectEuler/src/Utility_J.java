@@ -81,7 +81,7 @@ public class Utility_J {
 				numDivisores+=2;
 			}
 		}
-		if (limite*limite == n) {//verificaÃ§Ã£o do quadrado perfeito
+		if (limite*limite == n) {//verificação do quadrado perfeito
 			numDivisores++;
 		}
 		return numDivisores;
@@ -108,5 +108,40 @@ public class Utility_J {
 		if(n==0) return BigInteger.ZERO;
 		if(n==1) return BigInteger.ONE;
 		return bigFibonacci(n-1).add(bigFibonacci(n-2));
+	}
+	
+	public static BigInteger combinacoes(int n, int r) {
+		BigInteger factn = new BigInteger(factorialString(n));
+		BigInteger factr = new BigInteger(factorialString(r));
+		BigInteger comb = factn.divide(factr.multiply(factr));
+		return comb;
+	}
+
+	
+	public static int somaDivisores(int n) {
+		int sum=0;
+		for (int i=1; i<n;i++) {
+			if (n%i==0) {
+				sum+=i;
+			}
+		}
+		return sum;
+	}
+	
+	
+	public static boolean isAmicable(int a) {
+		int b = somaDivisores(a);
+		return b!=a && somaDivisores(b)==a;
+	}
+	
+	
+	public static int somaElevadoCinco(int x) {
+		int sum=0;
+		while (x!=0) {
+			int y=x%10;
+			sum+=y*y*y*y*y;
+			x/=10;
+		}
+		return sum;
 	}
 }
