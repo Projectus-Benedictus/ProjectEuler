@@ -4,17 +4,11 @@ import java.math.BigInteger;
 public class Utility {
 	
 	public static boolean isPrime(int a) {
-		if (a==2) { 
-			return true;
-		}
-		if (a % 2 == 0 || a == 1) {
-			return false;
-		}
-		long sqrtPrimo= (long)Math.sqrt(a);
+		if (a==2) return true;
+		if (a % 2 == 0 || a == 1) return false;
+		long sqrtPrimo = (long) Math.sqrt(a);
 		for (int i=3;i<=sqrtPrimo;i+=2) {
-			if (a%i==0) {
-				return false;
-			}
+			if (a%i==0) return false;
 		}
 		return true;
 	}
@@ -88,17 +82,67 @@ public class Utility {
 				numDivisores+=2;
 			}
 		}
-		if (limite*limite == n) {//verificaÃ§Ã£o do quadrado perfeito
+		if (limite*limite == n) {//verificação do quadrado perfeito
 			numDivisores++;
 		}
 		return numDivisores;
 	}
 	
-	public static String FactorialString(int n) {
-		BigInteger fact = new BigInteger("1");
+	public static String factorialString(int n) {
+		BigInteger fact = BigInteger.ONE;
 		for (int i=1;i<=n;i++) {
-			fact = fact.multiply(new BigInteger(i+""));
+			fact = fact.multiply(BigInteger.valueOf(i));
 		}
 		return fact.toString();
+	}
+	
+	public static int collatzSequence(long n) {
+		int counter=0;
+		while(n!=1) {
+			n = (n%2==0) ? (n=n/2) : (n=n*3+1);
+			counter++;
+		}
+		return counter;
+	}
+	
+	public static BigInteger bigFibonacci(int n) {
+		if(n==0) return BigInteger.ZERO;
+		if(n==1) return BigInteger.ONE;
+		return bigFibonacci(n-1).add(bigFibonacci(n-2));
+	}
+	
+	public static BigInteger combinacoes(int n, int r) {
+		BigInteger factn = new BigInteger(factorialString(n));
+		BigInteger factr = new BigInteger(factorialString(r));
+		BigInteger comb = factn.divide(factr.multiply(factr));
+		return comb;
+	}
+
+	
+	public static int somaDivisores(int n) {
+		int sum=0;
+		for (int i=1; i<n;i++) {
+			if (n%i==0) {
+				sum+=i;
+			}
+		}
+		return sum;
+	}
+	
+	
+	public static boolean isAmicable(int a) {
+		int b = somaDivisores(a);
+		return b!=a && somaDivisores(b)==a;
+	}
+	
+	
+	public static int somaElevadoCinco(int x) {
+		int sum=0;
+		while (x!=0) {
+			int y=x%10;
+			sum+=y*y*y*y*y;
+			x/=10;
+		}
+		return sum;
 	}
 }
