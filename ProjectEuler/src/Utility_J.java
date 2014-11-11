@@ -144,4 +144,15 @@ public class Utility_J {
 		}
 		return sum;
 	}
+	
+	
+	public static int somaFactorial(int n) {
+		int[] factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+		int sum = 0;
+		while (n!=0) {
+			sum += factorial[n%10];
+			n/=10;
+		}
+		return sum;
+	}
 }

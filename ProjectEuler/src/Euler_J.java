@@ -314,6 +314,19 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem34() {
+		int sum = 0;
+		int contador=0;
+		for (int i=3;;i++) {
+			if(i==Utility_J.somaFactorial(i)) {
+				sum+=i;
+				contador+=1;
+				if(contador==2) break;
+			}
+		}
+		return sum;
+	}
+	
 	
 	public long Problem48() {
 		BigInteger soma = BigInteger.ONE;
