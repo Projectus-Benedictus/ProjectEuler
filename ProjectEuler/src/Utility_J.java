@@ -168,4 +168,52 @@ public class Utility_J {
 		}
 		return maneiras;
 	}
+	
+	public static boolean isAbundante(int n) {
+		if (n<1) {
+			throw new IllegalArgumentException();
+		}
+		int sum=1;
+		int fim = (int)  Math.sqrt(n);
+		for (int i=2; i<=fim;i++) {
+			if (n%i==0) {
+				sum +=i+n/i;
+			}
+		}
+		if (fim*fim == n) {
+			sum -=fim;
+		}
+		return sum>n;
+	}
+	
+	public static boolean isSoma2Abundantes(int n) {
+		for (int i=0;i<=n;i++) {
+			if (Euler_J.isAbundante[i] && Euler_J.isAbundante[n-i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public static boolean nextPermutation(int[] a) {
+		int i, n = a.length;
+		for (i = n - 2; ; i--) {
+			if (i < 0)
+				return false;
+			if (a[i] < a[i + 1])
+				break;
+		}
+		for (int j = 1; i + j < n - j; j++) {
+			int tp = a[i + j];
+			a[i + j] = a[n - j];
+			a[n - j] = tp;
+		}
+		int j;
+		for (j = i + 1; a[j] <= a[i]; j++);
+		int tp = a[i];
+		a[i] = a[j];
+		a[j] = tp;
+		return true;
+	}
 }
