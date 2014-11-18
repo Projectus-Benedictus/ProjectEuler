@@ -314,6 +314,11 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem31() {
+		return Utility_J.somas(200)[8][200];
+	}
+	
+	
 	public int Problem34() {
 		int sum = 0;
 		int contador=0;

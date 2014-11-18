@@ -2,6 +2,8 @@ import java.math.BigInteger;
 
 public class Utility_J {
 	
+	private static int[] MOEDAS = {1, 2, 5, 10, 20, 50, 100, 200};
+	
 	public static boolean isPrime(int a) {
 		if (a==2) return true;
 		if (a % 2 == 0 || a == 1) return false;
@@ -154,5 +156,16 @@ public class Utility_J {
 			n/=10;
 		}
 		return sum;
+	}
+	
+	public static int[][] somas(int total) {
+		int[][] maneiras = new int[MOEDAS.length+1][total+1];
+		maneiras[0][0] = 1;
+		for (int i = 0; i<MOEDAS.length;i++) {
+			for ( int j = 0;j<=total; j++) {
+				maneiras[i+1][j] = maneiras[i][j] + (j >= MOEDAS[i] ? maneiras[i+1][j-MOEDAS[i]] : 0);
+			}
+		}
+		return maneiras;
 	}
 }
