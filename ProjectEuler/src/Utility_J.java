@@ -1,6 +1,7 @@
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Arrays;
 
 public class Utility_J {
 	
@@ -230,5 +231,24 @@ public class Utility_J {
 			b++;
 		}
 		return b-dict.get(a);
+	}
+	
+	
+	public static boolean temProdutoPandigital(int n) {
+		for (int i=1;i<=n;i++) {
+			if (n%i == 0 && isPandigital("" + n + i + n/i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean isPandigital(String p) {
+		if (p.length()!=9) {
+			return false;
+		}
+		char[] temp = p.toCharArray();
+		Arrays.sort(temp);
+		return new String(temp).equals("123456789");
 	}
 }

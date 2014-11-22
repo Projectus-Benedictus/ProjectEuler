@@ -362,6 +362,17 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem32() {
+		int sum = 0;
+		for (int i = 1; i < 10000; i++) {
+			if (Utility_J.temProdutoPandigital(i)) {
+				sum += i;
+			}
+		}
+		return sum;
+	}
+
+	
 	public int Problem34() {
 		int sum = 0;
 		int contador=0;
