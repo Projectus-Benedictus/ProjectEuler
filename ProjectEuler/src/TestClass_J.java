@@ -23,8 +23,9 @@ public class TestClass_J {
 		//System.out.println("Problema 20: "+solved.Problem20());
 		//System.out.println("Problema 21: "+solved.Problem21());
 		//System.out.println("Problema 23: "+solved.Problem23());
-		System.out.println("Problema 24: "+solved.Problem24());
+		//System.out.println("Problema 24: "+solved.Problem24());
 		//System.out.println("Problema 25: "+solved.Problem25());
+		System.out.println("Problema 26: "+solved.Problem26());
 		//System.out.println("Problema 28: "+solved.Problem28());
 		//System.out.println("Problema 29: "+solved.Problem29());
 		//System.out.println("Problema 30: "+solved.Problem30());

@@ -314,10 +314,7 @@ public class Euler {
 	}
 	
 	
-	public int Problem34() {
-		
-	}
-	
+
 	public long Problem48() {
 		BigInteger soma = BigInteger.ONE;
 		for (int i=2;i<=1000;i++) {

@@ -1,4 +1,6 @@
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utility_J {
 	
@@ -215,5 +217,18 @@ public class Utility_J {
 		a[i] = a[j];
 		a[j] = tp;
 		return true;
+	}
+	
+	
+	public static int tamanhoCiclo(int d) {
+		Map<Integer, Integer> dict = new HashMap<Integer, Integer>();
+		int a = 1;
+		int b = 0;
+		while (!dict.containsKey(a)) {
+			dict.put(a, b);
+			a = a*10%d;
+			b++;
+		}
+		return b-dict.get(a);
 	}
 }

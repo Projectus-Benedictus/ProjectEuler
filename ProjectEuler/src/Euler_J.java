@@ -314,6 +314,19 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem26() {
+		int num = 0;
+		int maiorTamanho=0;
+		for (int d=1;d<=1000;d++) {
+			int tamanho = Utility_J.tamanhoCiclo(d);
+			if (tamanho>maiorTamanho) {
+				num = d;
+				maiorTamanho = tamanho;
+			}
+		}
+		return num;
+	}
+	
 	public long Problem28() {
 		long sum=1;
 		for (int i=3;i<=SIZE;i+=2) {
