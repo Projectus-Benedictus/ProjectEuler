@@ -387,6 +387,22 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem38() {
+		int max=-1;
+		for (int i=2;i<=9;i++) {
+			for (int j=1;j< (int) Math.pow(10, 9/i);j++) {
+				String s = "";
+				for (int n=1;n<=i;n++) {
+					s+=j*n;
+				}
+				if (Utility_J.isPandigital(s)) {
+					max = Math.max(Integer.parseInt(s), max);
+				}
+			}
+		}
+		return max;
+	}
+	
 	public long Problem48() {
 		BigInteger soma = BigInteger.ONE;
 		for (int i=2;i<=1000;i++) {
