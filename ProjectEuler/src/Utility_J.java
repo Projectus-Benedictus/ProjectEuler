@@ -251,4 +251,12 @@ public class Utility_J {
 		Arrays.sort(temp);
 		return new String(temp).equals("123456789");
 	}
+	
+	public static int toInteger(int[] digits) {
+		int result=0;
+		for (int x : digits) { 
+			result = result*10+x;
+		}
+		return result;
+	}
 }

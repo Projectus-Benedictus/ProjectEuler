@@ -403,6 +403,27 @@ public class Euler_J {
 		return max;
 	}
 	
+	
+	public int Problem41() {
+		for (int n=9;n>=1;n--) {
+			int[] digits = new int[n];
+			for (int i=0;i<digits.length;i++) {
+				digits[i]=i+1;
+			}
+			int result=-1;
+			do {
+				if(Utility_J.isPrime(Utility_J.toInteger(digits))) {
+					result = Utility_J.toInteger(digits);
+				}
+			}while (Utility_J.nextPermutation(digits));
+			if (result!=-1) {
+				return result;
+			}
+		}
+		throw new RuntimeException("Not Found");
+	}
+	
+	
 	public long Problem48() {
 		BigInteger soma = BigInteger.ONE;
 		for (int i=2;i<=1000;i++) {
