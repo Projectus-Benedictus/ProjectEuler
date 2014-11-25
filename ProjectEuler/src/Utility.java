@@ -1,7 +1,11 @@
 import java.math.BigInteger;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
 
 public class Utility {
+	
+	private static int[] MOEDAS = {1, 2, 5, 10, 20, 50, 100, 200};
 	
 	public static boolean isPrime(int a) {
 		if (a==2) return true;
@@ -144,5 +148,132 @@ public class Utility {
 			x/=10;
 		}
 		return sum;
+	}
+	
+	
+	public static int somaFactorial(int n) {
+		int[] factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+		int sum = 0;
+		while (n!=0) {
+			sum += factorial[n%10];
+			n/=10;
+		}
+		return sum;
+	}
+	
+	public static int[][] somas(int total) {
+		int[][] maneiras = new int[MOEDAS.length+1][total+1];
+		maneiras[0][0] = 1;
+		for (int i = 0; i<MOEDAS.length;i++) {
+			for ( int j = 0;j<=total; j++) {
+				maneiras[i+1][j] = maneiras[i][j] + (j >= MOEDAS[i] ? maneiras[i+1][j-MOEDAS[i]] : 0);
+			}
+		}
+		return maneiras;
+	}
+	
+	public static boolean isAbundante(int n) {
+		if (n<1) {
+			throw new IllegalArgumentException();
+		}
+		int sum=1;
+		int fim = (int)  Math.sqrt(n);
+		for (int i=2; i<=fim;i++) {
+			if (n%i==0) {
+				sum +=i+n/i;
+			}
+		}
+		if (fim*fim == n) {
+			sum -=fim;
+		}
+		return sum>n;
+	}
+	
+	public static boolean isSoma2Abundantes(int n) {
+		for (int i=0;i<=n;i++) {
+			if (Euler_J.isAbundante[i] && Euler_J.isAbundante[n-i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public static boolean nextPermutation(int[] a) {
+		int i, n = a.length;
+		for (i = n - 2; ; i--) {
+			if (i < 0)
+				return false;
+			if (a[i] < a[i + 1])
+				break;
+		}
+		for (int j = 1; i + j < n - j; j++) {
+			int tp = a[i + j];
+			a[i + j] = a[n - j];
+			a[n - j] = tp;
+		}
+		int j;
+		for (j = i + 1; a[j] <= a[i]; j++);
+		int tp = a[i];
+		a[i] = a[j];
+		a[j] = tp;
+		return true;
+	}
+	
+	
+	public static int tamanhoCiclo(int d) {
+		Map<Integer, Integer> dict = new HashMap<Integer, Integer>();
+		int a = 1;
+		int b = 0;
+		while (!dict.containsKey(a)) {
+			dict.put(a, b);
+			a = a*10%d;
+			b++;
+		}
+		return b-dict.get(a);
+	}
+	
+	
+	public static boolean temProdutoPandigital(int n) {
+		for (int i=1;i<=n;i++) {
+			if (n%i == 0 && isPandigital("" + n + i + n/i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean isPandigital(String p) {
+		if (p.length()!=9) {
+			return false;
+		}
+		char[] temp = p.toCharArray();
+		Arrays.sort(temp);
+		return new String(temp).equals("123456789");
+	}
+	
+	public static int toInteger(int[] digits) {
+		int result=0;
+		for (int x : digits) { 
+			result = result*10+x;
+		}
+		return result;
+	}
+	
+	public static long numeroPentagonal(int x) {
+		if (x<=0) {
+			throw new IllegalArgumentException();
+		}
+		return (long) x*(x*3-1)>>>1;
+	}
+	
+	
+	public static boolean isNumeroPentagonal(long x) {
+		if (x<=0) {
+			return false;
+		}
+		long n = x*24+1;
+		long sqrt = (long) Math.sqrt(n);
+		return sqrt*sqrt==n && sqrt%6==5;
 	}
 }
