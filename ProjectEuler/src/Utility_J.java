@@ -259,4 +259,21 @@ public class Utility_J {
 		}
 		return result;
 	}
+	
+	public static long numeroPentagonal(int x) {
+		if (x<=0) {
+			throw new IllegalArgumentException();
+		}
+		return (long) x*(x*3-1)>>>1;
+	}
+	
+	
+	public static boolean isNumeroPentagonal(long x) {
+		if (x<=0) {
+			return false;
+		}
+		long n = x*24+1;
+		long sqrt = (long) Math.sqrt(n);
+		return sqrt*sqrt==n && sqrt%6==5;
+	}
 }

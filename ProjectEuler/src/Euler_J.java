@@ -424,6 +424,28 @@ public class Euler_J {
 	}
 	
 	
+	
+	public long Problem44() {
+		long minD=-1;
+		for (int i=2;;i++) {
+			long pentI=Utility_J.numeroPentagonal(i);
+			if (minD!=-1 && pentI-Utility_J.numeroPentagonal(i-1)>minD) {
+				break;
+			}
+			for (int j=i-1;j>=1;j--) {
+				long pentJ = Utility_J.numeroPentagonal(j);
+				long diff = pentI-pentJ;
+				if (minD!=-1 && diff>= minD) {
+					break;
+				}else if (Utility_J.isNumeroPentagonal(pentI+pentJ) && Utility_J.isNumeroPentagonal(diff) && (minD==-1 || diff<minD)) {
+					minD=diff;
+				}
+			}
+		}
+		return minD;
+	}
+	
+	
 	public long Problem48() {
 		BigInteger soma = BigInteger.ONE;
 		for (int i=2;i<=1000;i++) {
