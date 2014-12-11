@@ -472,6 +472,19 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem39() {
+		int perimetroMaximo=0;
+		int triangulosMaximos=0;
+		for (int p=1;p<=1000;p++) {
+			int triangulos=Utility_J.contarSolucoes(p);
+			if (triangulos > triangulosMaximos) {
+				triangulosMaximos=triangulos;
+				perimetroMaximo=p;
+			}
+		}
+		return perimetroMaximo;
+	}
+	
 	public int Problem41() {
 		for (int n=9;n>=1;n--) {
 			int[] digits = new int[n];

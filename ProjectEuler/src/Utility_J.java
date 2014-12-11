@@ -329,4 +329,17 @@ public class Utility_J {
 			}
 		}
 	}
+	
+	public static int contarSolucoes(int p) {
+		int count=0;
+		for (int a=1;a<=p;a++) {
+			for (int b=a;b<=p;b++) {
+				int c=p-a-b;
+				if (b<=c && a*a + b*b == c*c) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
 }
