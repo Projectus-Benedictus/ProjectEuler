@@ -20,15 +20,12 @@ public class Utility_J {
 		return true;
 	}
 	
-	public static boolean isPalindrome(int n) {
-		int i=0;
-		int m=n;
-		while (n!=0) {
-			int r = n%10;
-			i=(i*10)+r;
-			n/=10;
-		}
-		return ((m == i) ? true: false);
+	public static String reverse(String s) {
+		return new StringBuilder(s).reverse().toString();
+	}
+	
+	public static boolean isPalindrome(String s) {
+		return s.equals(reverse(s));
 	}
 	
 	public static int maxmc(int x, int y) {	
@@ -332,6 +329,4 @@ public class Utility_J {
 			}
 		}
 	}
-	
-	
 }

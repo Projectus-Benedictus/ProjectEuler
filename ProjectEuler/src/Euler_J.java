@@ -69,7 +69,8 @@ public class Euler_J {
 		for (int i=100;i<=999;i++) {
 			for (int j=i; j<=999;j++) {
 				palindromo=i*j;
-				if (Utility_J.isPalindrome(palindromo) && palindromo>maior ) {
+				String s = ""+palindromo;
+				if (Utility_J.isPalindrome(s) && palindromo>maior ) {
 					maior=palindromo;
 				}
 			}
@@ -443,6 +444,16 @@ public class Euler_J {
 		return sum;
 	}
 	
+	
+	public int Problem36() {
+		int sum=0;
+		for (int i=1;i<1000000;i++) {
+			if (Utility_J.isPalindrome(Integer.toString(i, 10)) && Utility_J.isPalindrome(Integer.toString(i, 2))) {
+				sum+=i;
+			}
+		}
+		return sum;
+	}
 	
 	public int Problem38() {
 		int max=-1;
