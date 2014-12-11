@@ -28,12 +28,13 @@ public class TestClass_J {
 		//System.out.println("Problema 24: "+solved.Problem24());
 		//System.out.println("Problema 25: "+solved.Problem25());
 		//System.out.println("Problema 26: "+solved.Problem26());
-		System.out.println("Problema 27: " +solved.Problem27());
+		//System.out.println("Problema 27: " +solved.Problem27());
 		//System.out.println("Problema 28: "+solved.Problem28());
 		//System.out.println("Problema 29: "+solved.Problem29());
 		//System.out.println("Problema 30: "+solved.Problem30());
 		//System.out.println("Problema 31: "+solved.Problem31());
 		//System.out.println("Problema 32: "+solved.Problem32());
+		System.out.println("Problema 33: " +solved.Problem33());
 		//System.out.println("Problema 34: "+solved.Problem34());
 		//System.out.println("Problema 38: "+solved.Problem38());
 		//System.out.println("Problema 41: "+solved.Problem41());

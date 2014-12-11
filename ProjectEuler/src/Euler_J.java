@@ -412,6 +412,24 @@ public class Euler_J {
 	}
 
 	
+	public int Problem33() {
+		int numerador=1;
+		int denominador=1;
+		for (int d=10;d<100;d++) {
+			for (int n=10;n<d;n++) {
+				int n0=n%10;
+				int n1=n/10;
+				int d0=d%10;
+				int d1=d/10;
+				if ((n1==d0 && n0*d==n*d1) || (n0==d1 && n1*d == n*d0)) {
+					numerador*=n;
+					denominador*=d;
+				}
+			}
+		}
+		return denominador / Utility_J.maxmc(numerador, denominador);
+	}
+	
 	public int Problem34() {
 		int sum = 0;
 		int contador=0;
