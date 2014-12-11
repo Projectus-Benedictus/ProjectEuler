@@ -6,6 +6,9 @@ import java.util.Arrays;
 public class Utility_J {
 	
 	private static int[] MOEDAS = {1, 2, 5, 10, 20, 50, 100, 200};
+	private static String[] zeroNine = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	private static String[] tenNineteen = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+	private static String[] twentyAndUp = {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 	
 	public static boolean isPrime(int a) {
 		if (a==2) return true;
@@ -275,5 +278,49 @@ public class Utility_J {
 		long n = x*24+1;
 		long sqrt = (long) Math.sqrt(n);
 		return sqrt*sqrt==n && sqrt%6==5;
+	}
+	
+	public static String paraIngles(int n) {
+		if (n<0 || n>=100000) {
+			throw new IllegalArgumentException();
+			}
+		if (n<100) {
+			return twentyAndUp(n);
+		}
+		else {
+			String s = "";
+			if (n>=1000) {
+				s+=twentyAndUp(n/1000)+"thousand";
+			}
+			if (n/100 % 10 != 0) {
+				s+=zeroNine[n/100%10]+"hundred";
+			}
+			return s+(n%100 != 0 ? "and" + twentyAndUp(n%100) : "");
+		}
+	}
+	
+	public static String twentyAndUp(int n) {
+		if (n<10) {
+			return zeroNine[n];
+		}else if (n<20) {
+			return tenNineteen[n-10];
+		}else {
+			return twentyAndUp[n/10-2] + (n%10 !=0 ? zeroNine[n%10] : "");
+		}
+	}
+	
+	public static int diaDaSemana(int ano, int mes, int dia) {
+		long m = mod((long)mes - 3, 4800);
+		long a = mod(ano + m/12, 400);
+		m%=12;
+		return (int) ((a + a/4 - a/100 + (13*m+2) / 5 + dia + 2) % 7);
+	}
+	
+	public static long mod(long x, long y) {
+		x %= y;
+		if (y<0 && x>0 || y>0 &&x<0) {
+			x += y;
+		}
+		return x;
 	}
 }

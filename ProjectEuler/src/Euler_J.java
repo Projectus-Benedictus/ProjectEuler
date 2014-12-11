@@ -234,6 +234,14 @@ public class Euler_J {
 	}
 	
 	
+	public int Problem17() {
+		int sum=0;
+		for (int i=1;i<=1000;i++) {
+			sum+=Utility_J.paraIngles(i).length();
+		}
+		return sum;
+	}
+	
 	
 	public int Problem18() {
 		for (int i=triangulo.length-2; i>=0;i--) {
@@ -244,6 +252,10 @@ public class Euler_J {
 		return triangulo[0][0];
 	}
 	
+	
+	public int Problem19() {
+		
+	}
 	
 	
 	public int Problem20() {
