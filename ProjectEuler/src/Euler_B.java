@@ -69,7 +69,7 @@ public class Euler_B {
 		for (int i=100;i<=999;i++) {
 			for (int j=i; j<=999;j++) {
 				palindromo=i*j;
-				if (Utility_J.isPalindrome(palindromo) && palindromo>maior ) {
+				if (Utility_J.isPalindrome(Integer.toString(palindromo)) && palindromo>maior ) {
 					maior=palindromo;
 				}
 			}
