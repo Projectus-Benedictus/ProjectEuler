@@ -19,14 +19,16 @@ public class TestClass_J {
 		//System.out.println("Problema 14: "+solved.Problem14());
 		//System.out.println("Problema 15: "+solved.Problem15());
 		//System.out.println("Problema 16: "+solved.Problem16());
-		System.out.println("Problema 17: " +solved.Problem17());
+		//System.out.println("Problema 17: " +solved.Problem17());
 		//System.out.println("Problema 18: "+solved.Problem18());
+		//System.out.println("Problema 19: " +solved.Problem19());
 		//System.out.println("Problema 20: "+solved.Problem20());
 		//System.out.println("Problema 21: "+solved.Problem21());
 		//System.out.println("Problema 23: "+solved.Problem23());
 		//System.out.println("Problema 24: "+solved.Problem24());
 		//System.out.println("Problema 25: "+solved.Problem25());
 		//System.out.println("Problema 26: "+solved.Problem26());
+		System.out.println("Problema 27: " +solved.Problem27());
 		//System.out.println("Problema 28: "+solved.Problem28());
 		//System.out.println("Problema 29: "+solved.Problem29());
 		//System.out.println("Problema 30: "+solved.Problem30());

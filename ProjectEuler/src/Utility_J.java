@@ -323,4 +323,13 @@ public class Utility_J {
 		}
 		return x;
 	}
+	
+	public static int numeroDePrimosGeradosSeguidos(int i, int f) {
+		for (int a=0;;a++) {
+			int n=a * a + a * i + f;
+			if (n<0 || !isPrime(n)) {
+				return a;
+			}
+		}
+	}
 }

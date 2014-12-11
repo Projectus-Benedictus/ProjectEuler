@@ -254,7 +254,15 @@ public class Euler_J {
 	
 	
 	public int Problem19() {
-		
+		int count = 0;
+		for (int a=1901;a<=2000;a++) {
+			for (int m=1;m<=12;m++) {
+				if (Utility_J.diaDaSemana(a, m, 1) == 0) {
+					count++;
+				}
+			}
+		}
+		return count;
 	}
 	
 	
@@ -338,6 +346,25 @@ public class Euler_J {
 		}
 		return num;
 	}
+	
+	
+	public int Problem27() {
+		int melhor=0;
+		int melhorI=0;
+		int melhorF=0;
+		for (int i=-1000;i<=1000;i++) {
+			for (int f=-1000;f<=1000;f++) {
+				int num = Utility_J.numeroDePrimosGeradosSeguidos(i, f);
+				if (num > melhor) {
+					melhor = num;
+					melhorI = i;
+					melhorF = f;
+				}
+			}
+		}
+		return melhorI*melhorF;
+	}
+	
 	
 	public long Problem28() {
 		long sum=1;
