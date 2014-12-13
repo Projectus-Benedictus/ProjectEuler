@@ -13,9 +13,8 @@ public class Euler_J {
 	public static boolean[] isAbundante = new boolean[LIMITE23+1];
 	private static int[] TESTES = {2,3,5,7,11,13,17};
 	
-	public Euler_J() {
-	}
-
+	
+	
 	public int Problem1() {
 		int sum=0;
 		for(int i=3;i<1000;i++){
@@ -320,6 +319,7 @@ public class Euler_J {
 		return resposta;
 	}
 	
+	
 	public int Problem25() { //Must Find better way to do this
 		BigInteger a = BigInteger.valueOf(1);
 		BigInteger b = BigInteger.valueOf(1);
@@ -375,6 +375,7 @@ public class Euler_J {
 		}
 		return sum;
 	}
+	
 	
 	public int Problem29() {
 		Set<BigInteger> gerados = new HashSet<BigInteger>();
@@ -432,6 +433,7 @@ public class Euler_J {
 		return denominador / Utility_J.maxmc(numerador, denominador);
 	}
 	
+	
 	public int Problem34() {
 		int sum = 0;
 		int contador=0;
@@ -455,6 +457,7 @@ public class Euler_J {
 		}
 		return sum;
 	}
+	
 	
 	public int Problem38() {
 		int max=-1;
@@ -586,6 +589,7 @@ public class Euler_J {
 		}
 		return count;
 	}
+	
 	
 	public int Problem67() {
 		for (int i=trianguloGrande.length-2; i>=0;i--) {
