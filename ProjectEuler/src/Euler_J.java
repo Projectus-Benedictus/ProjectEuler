@@ -485,6 +485,20 @@ public class Euler_J {
 		return perimetroMaximo;
 	}
 	
+	
+	public int Problem40() {
+		StringBuilder sb = new StringBuilder();
+		for (int i=1;i<1000000;i++) {
+			sb.append(i);
+		}
+		int d=1;
+		for (int i=0;i<=6;i++) {
+			d*=sb.charAt((int) Math.pow(10,i)-1)-'0';
+		}
+		return d;
+	}
+	
+	
 	public int Problem41() {
 		for (int n=9;n>=1;n--) {
 			int[] digits = new int[n];
