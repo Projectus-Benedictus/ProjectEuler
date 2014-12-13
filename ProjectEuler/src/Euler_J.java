@@ -11,6 +11,7 @@ public class Euler_J {
 	private final int SIZE = 1001;
 	private static final int LIMITE = 28123;
 	public static boolean[] isAbundante = new boolean[LIMITE+1];
+	private static int[] TESTES = {2,3,5,7,11,13,17};
 	
 	public Euler_J() {
 	}
@@ -518,6 +519,21 @@ public class Euler_J {
 		throw new RuntimeException("Not Found");
 	}
 	
+	
+	public long Problem43() {
+		long sum=0;
+		int[] digits = {0,1,2,3,4,5,6,7,8,9};
+		ciclo:
+			do {
+				for (int i=0;i<TESTES.length;i++) {
+					if (Utility_J.toInteger(digits, i+1, 3) % TESTES[i] !=0) {
+						continue ciclo;
+					}
+				}
+				sum += Utility_J.toInteger(digits, 0, digits.length);
+			} while (Utility_J.nextPermutation(digits));
+		return sum;
+	}
 	
 	
 	public long Problem44() {

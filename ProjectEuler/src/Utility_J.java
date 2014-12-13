@@ -260,6 +260,15 @@ public class Utility_J {
 		return result;
 	}
 	
+	public static long toInteger(int[] digits, int off, int len) {
+		long result=0;
+		for (int i=off;i<off+len;i++) {
+			result = result*10 + digits[i];
+		}
+		return result;
+	}
+	
+	
 	public static long numeroPentagonal(int x) {
 		if (x<=0) {
 			throw new IllegalArgumentException();
