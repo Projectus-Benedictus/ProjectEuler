@@ -100,6 +100,17 @@ public class Utility_J {
 		return fact.toString();
 	}
 	
+	public static BigInteger factorial(int n) {
+		if (n<0) {
+			throw new IllegalArgumentException("Factorial de um número negativo");
+		}
+		BigInteger b = BigInteger.ONE;
+		for (int i=2;i<=n;i++) {
+			b=b.multiply(BigInteger.valueOf(i));
+		}
+		return b;
+	}
+	
 	public static int collatzSequence(long n) {
 		int counter=0;
 		while(n!=1) {
@@ -350,5 +361,20 @@ public class Utility_J {
 			}
 		}
 		return count;
+	}
+	
+	public static boolean temOsMesmosDigitos(int x, int y) {
+		char[] xDigitos = Integer.toString(x).toCharArray();
+		char[] yDigitos = Integer.toString(y).toCharArray();
+		Arrays.sort(xDigitos);
+		Arrays.sort(yDigitos);
+		if (Arrays.equals(xDigitos, yDigitos)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static BigInteger binomial(int i, int j) {
+		return factorial(i).divide(factorial(i - j).multiply(factorial(j)));
 	}
 }

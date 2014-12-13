@@ -41,9 +41,10 @@ public class TestClass_J {
 		//System.out.println("Problema 39: "+solved.Problem39());
 		//System.out.println("Problema 40: "+solved.Problem40());
 		//System.out.println("Problema 41: "+solved.Problem41());
-		System.out.println("Problema 43: "+solved.Problem43());
+		//System.out.println("Problema 43: "+solved.Problem43());
 		//System.out.println("Problema 44: "+solved.Problem44());
 		//System.out.println("Problema 48: "+solved.Problem48());
+		System.out.println("Problema 53: "+solved.Problem53());
 		//System.out.println("Problema 67: "+solved.Problem67());
 	}
 }
