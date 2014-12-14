@@ -417,4 +417,20 @@ public class Utility_J {
 		}
 		return true;
 	}
+	
+	public static boolean isTruncablePrime(int n) {
+		//lado esquerdo
+		for (long i=10;i<=n;i*=10) {
+			if (!isPrime(n % (int)i)) {
+				return false;
+			}
+		}
+		//lado direito;
+		for (;n!=0;n/=10) {
+			if (!isPrime(n)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

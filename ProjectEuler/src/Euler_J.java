@@ -473,6 +473,18 @@ public class Euler_J {
 	}
 	
 	
+	public long Problem37() {
+		long sum=0;
+		for (int count=0, i=10;count<11;i++) {
+			if (Utility_J.isTruncablePrime(i)) {
+				sum+=i;
+				count++;
+			}
+		}
+		return sum;
+	}
+	
+	
 	public int Problem38() {
 		int max=-1;
 		for (int i=2;i<=9;i++) {
