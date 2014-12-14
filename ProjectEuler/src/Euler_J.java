@@ -13,6 +13,8 @@ public class Euler_J {
 	public static boolean[] isAbundante = new boolean[LIMITE23+1];
 	private static int[] TESTES = {2,3,5,7,11,13,17};
 	private static final int LIMITE87 = 50000000;
+	private static final int LIMITE35 = (int) Math.pow(10, 6);
+	public static boolean[] isPrime = Utility_J.listarPrimaliade(LIMITE35-1);
 	
 	
 	
@@ -446,6 +448,17 @@ public class Euler_J {
 			}
 		}
 		return sum;
+	}
+	
+	
+	public int Problem35() {
+		int count=0;
+		for (int i=0;i<isPrime.length;i++) {
+			if (Utility_J.isCircularPrime(i)) {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	

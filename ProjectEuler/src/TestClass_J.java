@@ -36,6 +36,7 @@ public class TestClass_J {
 		//System.out.println("Problema 32: "+solved.Problem32());
 		//System.out.println("Problema 33: "+solved.Problem33());
 		//System.out.println("Problema 34: "+solved.Problem34());
+		System.out.println("Problema 35: "+solved.Problem35());
 		//System.out.println("Problema 36: "+solved.Problem36());
 		//System.out.println("Problema 38: "+solved.Problem38());
 		//System.out.println("Problema 39: "+solved.Problem39());
@@ -46,6 +47,6 @@ public class TestClass_J {
 		//System.out.println("Problema 48: "+solved.Problem48());
 		//System.out.println("Problema 53: "+solved.Problem53());
 		//System.out.println("Problema 67: "+solved.Problem67());
-		System.out.println("Problema 87: "+solved.Problem87());
+		//System.out.println("Problema 87: "+solved.Problem87());
 	}
 }

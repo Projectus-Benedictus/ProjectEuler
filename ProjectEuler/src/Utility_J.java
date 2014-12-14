@@ -407,4 +407,14 @@ public class Utility_J {
 	public static BigInteger binomial(int i, int j) {
 		return factorial(i).divide(factorial(i - j).multiply(factorial(j)));
 	}
+	
+	public static boolean isCircularPrime(int n) {
+		String s = ""+n;
+		for (int i=0;i<s.length();i++) {
+			if (!Euler_J.isPrime[Integer.parseInt(s.substring(i)+s.substring(0,i))]) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
