@@ -12,6 +12,7 @@ public class Euler_J {
 	private static final int LIMITE23 = 28123;
 	public static boolean[] isAbundante = new boolean[LIMITE23+1];
 	private static int[] TESTES = {2,3,5,7,11,13,17};
+	private static final int LIMITE87 = 50000000;
 	
 	
 	
@@ -598,5 +599,32 @@ public class Euler_J {
 			}
 		}
 		return trianguloGrande[0][0];
+	}
+	
+	
+	public int Problem87() {
+		int[] primos = Utility_J.listarPrimalidade((int) Math.sqrt(LIMITE87));
+		Set<Integer> sums = new HashSet<Integer>();
+		sums.add(0);
+		for (int i=2;i<=4;i++) {
+			Set<Integer> newSums = new HashSet<Integer>();
+			for (int p : primos) {
+				long q = 1;
+				for (int j=0;j<i;j++) {
+					q *= p;
+				}
+				if (q>LIMITE87) {
+					break;
+				}
+				int r = (int) q;
+				for (int x : sums) {
+					if (x+r <=LIMITE87) {
+						newSums.add(x+r);
+					}
+				}
+			}
+			sums = newSums;
+		}
+		return sums.size();
 	}
 }
