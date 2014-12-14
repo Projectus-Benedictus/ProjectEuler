@@ -6,6 +6,9 @@ import java.util.Arrays;
 public class Utility {
 	
 	private static int[] MOEDAS = {1, 2, 5, 10, 20, 50, 100, 200};
+	private static String[] zeroNine = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	private static String[] tenNineteen = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+	private static String[] twentyAndUp = {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 	
 	public static boolean isPrime(int a) {
 		if (a==2) return true;
@@ -17,15 +20,42 @@ public class Utility {
 		return true;
 	}
 	
-	public static boolean isPalindrome(int n) {
-		int i=0;
-		int m=n;
-		while (n!=0) {
-			int r = n%10;
-			i=(i*10)+r;
-			n/=10;
+	public static boolean[] listarPrimaliade(int n) {
+		boolean[] primos = new boolean[n+1];
+		for (int i=0;i<n+1;i++) {
+			if (isPrime(i)) {
+				primos[i] = true;
+			}else {
+				primos[i] = false;
+			}
 		}
-		return ((m == i) ? true: false);
+		return primos;
+	}
+	
+	public static int[] listarPrimalidade(int max) {
+		boolean[] isPrime = listarPrimaliade(max);
+		int count=0;
+		for (boolean b : isPrime) {
+			if (b) {
+				count++;
+			}
+		}
+		int[] primos = new int[count];
+		for (int i=0, j=0;i<isPrime.length;i++) {
+			if (isPrime[i]) {
+				primos[j]=i;
+				j++;
+			}
+		}
+		return primos;
+	}
+	
+	public static String reverse(String s) {
+		return new StringBuilder(s).reverse().toString();
+	}
+	
+	public static boolean isPalindrome(String s) {
+		return s.equals(reverse(s));
 	}
 	
 	public static int maxmc(int x, int y) {	
@@ -98,6 +128,17 @@ public class Utility {
 			fact = fact.multiply(BigInteger.valueOf(i));
 		}
 		return fact.toString();
+	}
+	
+	public static BigInteger factorial(int n) {
+		if (n<0) {
+			throw new IllegalArgumentException("Factorial de um número negativo");
+		}
+		BigInteger b = BigInteger.ONE;
+		for (int i=2;i<=n;i++) {
+			b=b.multiply(BigInteger.valueOf(i));
+		}
+		return b;
 	}
 	
 	public static int collatzSequence(long n) {
@@ -191,7 +232,7 @@ public class Utility {
 	
 	public static boolean isSoma2Abundantes(int n) {
 		for (int i=0;i<=n;i++) {
-			if (Euler_J.isAbundante[i] && Euler_J.isAbundante[n-i]) {
+			if (Euler.isAbundante[i] && Euler.isAbundante[n-i]) {
 				return true;
 			}
 		}
@@ -260,6 +301,15 @@ public class Utility {
 		return result;
 	}
 	
+	public static long toInteger(int[] digits, int off, int len) {
+		long result=0;
+		for (int i=off;i<off+len;i++) {
+			result = result*10 + digits[i];
+		}
+		return result;
+	}
+	
+	
 	public static long numeroPentagonal(int x) {
 		if (x<=0) {
 			throw new IllegalArgumentException();
@@ -275,5 +325,111 @@ public class Utility {
 		long n = x*24+1;
 		long sqrt = (long) Math.sqrt(n);
 		return sqrt*sqrt==n && sqrt%6==5;
+	}
+	
+	public static String paraIngles(int n) {
+		if (n<0 || n>=100000) {
+			throw new IllegalArgumentException();
+			}
+		if (n<100) {
+			return twentyAndUp(n);
+		}
+		else {
+			String s = "";
+			if (n>=1000) {
+				s+=twentyAndUp(n/1000)+"thousand";
+			}
+			if (n/100 % 10 != 0) {
+				s+=zeroNine[n/100%10]+"hundred";
+			}
+			return s+(n%100 != 0 ? "and" + twentyAndUp(n%100) : "");
+		}
+	}
+	
+	public static String twentyAndUp(int n) {
+		if (n<10) {
+			return zeroNine[n];
+		}else if (n<20) {
+			return tenNineteen[n-10];
+		}else {
+			return twentyAndUp[n/10-2] + (n%10 !=0 ? zeroNine[n%10] : "");
+		}
+	}
+	
+	public static int diaDaSemana(int ano, int mes, int dia) {
+		long m = mod((long)mes - 3, 4800);
+		long a = mod(ano + m/12, 400);
+		m%=12;
+		return (int) ((a + a/4 - a/100 + (13*m+2) / 5 + dia + 2) % 7);
+	}
+	
+	public static long mod(long x, long y) {
+		x %= y;
+		if (y<0 && x>0 || y>0 &&x<0) {
+			x += y;
+		}
+		return x;
+	}
+	
+	public static int numeroDePrimosGeradosSeguidos(int i, int f) {
+		for (int a=0;;a++) {
+			int n=a * a + a * i + f;
+			if (n<0 || !isPrime(n)) {
+				return a;
+			}
+		}
+	}
+	
+	public static int contarSolucoes(int p) {
+		int count=0;
+		for (int a=1;a<=p;a++) {
+			for (int b=a;b<=p;b++) {
+				int c=p-a-b;
+				if (b<=c && a*a + b*b == c*c) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+	
+	public static boolean temOsMesmosDigitos(int x, int y) {
+		char[] xDigitos = Integer.toString(x).toCharArray();
+		char[] yDigitos = Integer.toString(y).toCharArray();
+		Arrays.sort(xDigitos);
+		Arrays.sort(yDigitos);
+		if (Arrays.equals(xDigitos, yDigitos)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static BigInteger binomial(int i, int j) {
+		return factorial(i).divide(factorial(i - j).multiply(factorial(j)));
+	}
+	
+	public static boolean isCircularPrime(int n) {
+		String s = ""+n;
+		for (int i=0;i<s.length();i++) {
+			if (!Euler_J.isPrime[Integer.parseInt(s.substring(i)+s.substring(0,i))]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean isTruncablePrime(int n) {
+		//lado esquerdo
+		for (long i=10;i<=n;i*=10) {
+			if (!isPrime(n % (int)i)) {
+				return false;
+			}
+		}
+		for (;n!=0;n/=10) {
+			if (!isPrime(n)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

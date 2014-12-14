@@ -425,7 +425,6 @@ public class Utility_J {
 				return false;
 			}
 		}
-		//lado direito;
 		for (;n!=0;n/=10) {
 			if (!isPrime(n)) {
 				return false;

@@ -34,7 +34,11 @@ public class TestClass {
 		System.out.println("");
 		System.out.println("Problema 16: "+solved.Problem16());
 		System.out.println("");
+		System.out.println("Problema 17: "+solved.Problem17());
+		System.out.println("");
 		System.out.println("Problema 18: "+solved.Problem18());
+		System.out.println("");
+		System.out.println("Problema 19: "+solved.Problem19());
 		System.out.println("");
 		System.out.println("Problema 20: "+solved.Problem20());
 		System.out.println("");
@@ -48,6 +52,8 @@ public class TestClass {
 		System.out.println("");
 		System.out.println("Problema 26: "+solved.Problem26());
 		System.out.println("");
+		System.out.println("Problema 27: "+solved.Problem27());
+		System.out.println("");
 		System.out.println("Problema 28: "+solved.Problem28());
 		System.out.println("");
 		System.out.println("Problema 29: "+solved.Problem29());
@@ -58,16 +64,34 @@ public class TestClass {
 		System.out.println("");
 		System.out.println("Problema 32: "+solved.Problem32());
 		System.out.println("");
+		System.out.println("Problema 33: "+solved.Problem33());
+		System.out.println("");
 		System.out.println("Problema 34: "+solved.Problem34());
+		System.out.println("");
+		System.out.println("Problema 35: "+solved.Problem35());
+		System.out.println("");
+		System.out.println("Problema 36: "+solved.Problem36());
+		System.out.println("");
+		System.out.println("Problema 37: "+solved.Problem37());
 		System.out.println("");
 		System.out.println("Problema 38: "+solved.Problem38());
 		System.out.println("");
+		System.out.println("Problema 39: "+solved.Problem39());
+		System.out.println("");
+		System.out.println("Problema 40: "+solved.Problem40());
+		System.out.println("");
 		System.out.println("Problema 41: "+solved.Problem41());
+		System.out.println("");
+		System.out.println("Problema 43: "+solved.Problem43());
 		System.out.println("");
 		System.out.println("Problema 44: "+solved.Problem44());
 		System.out.println("");
 		System.out.println("Problema 48: "+solved.Problem48());
 		System.out.println("");
+		System.out.println("Problema 53: "+solved.Problem53());
+		System.out.println("");
 		System.out.println("Problema 67: "+solved.Problem67());
+		System.out.println("");
+		System.out.println("Problema 87: "+solved.Problem87());
 	}
 }
