@@ -20,6 +20,36 @@ public class Utility_J {
 		return true;
 	}
 	
+	public static boolean[] listarPrimaliade(int n) {
+		boolean[] primos = new boolean[n+1];
+		for (int i=0;i<n+1;i++) {
+			if (isPrime(i)) {
+				primos[i] = true;
+			}else {
+				primos[i] = false;
+			}
+		}
+		return primos;
+	}
+	
+	public static int[] listarPrimalidade(int max) {
+		boolean[] isPrime = listarPrimaliade(max);
+		int count=0;
+		for (boolean b : isPrime) {
+			if (b) {
+				count++;
+			}
+		}
+		int[] primos = new int[count];
+		for (int i=0, j=0;i<isPrime.length;i++) {
+			if (isPrime[i]) {
+				primos[j]=i;
+				j++;
+			}
+		}
+		return primos;
+	}
+	
 	public static String reverse(String s) {
 		return new StringBuilder(s).reverse().toString();
 	}
