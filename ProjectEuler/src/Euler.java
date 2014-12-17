@@ -217,8 +217,8 @@ public class Euler {
 	
 	public BigInteger Problem15() {
 		//Sabemos que qualquer path vai ter 40 movimentos (20 para a direita e 20 para baixo)
-		//Basta fazer uma combinaÁ„o, 40 C 20 = 40!/(20!*(40-20)!)
-		//Luckily, j· temos o factorial do exercicio 20 :)
+		//Basta fazer uma combina√ß√£o, 40 C 20 = 40!/(20!*(40-20)!)
+		//Luckily, j√° temos o factorial do exercicio 20 :)
 		return Utility.combinacoes(40,20);
 	}
 	
@@ -474,14 +474,14 @@ public class Euler {
 	
 	
 	public long Problem37() {
-		long sum=0;
+		long soma=0;
 		for (int count=0, i=10;count<11;i++) {
 			if (Utility.isTruncablePrime(i)) {
-				sum+=i;
+				soma+=i;
 				count++;
 			}
 		}
-		return sum;
+		return soma;
 	}
 	
 	
